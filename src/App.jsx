@@ -60,19 +60,19 @@ console.log("temp" , temp);
     // setDisplayValue(ansString);
   }
   return ( 
-    <div>
-      <p className="display">{displayValue}</p>
-      <div className="lowerbody">
-        <div className="btnspace">
+    <div className=" bg-neutral-400 border-2 border-black w-[30%] p-4 mx-auto my-auto translate-y-1/2 rounded-lg">
+      <p className="bg-white w-full h-10 border-2 border-black rounded-lg mb-5 text-end py-2 px-1">{displayValue}</p>
+      <div className="lowerbody  mt-5 flex w-full">
+        <div className=" flex w-full flex-wrap gap-2.5 justify-between pr-2 item-center ">
           <Btn data = "C" setDisplayValue={()=>{setDisplayValue("")}}/>
           {arr.map((val,idx)=> {return <Btn key ={idx} data = {val} setDisplayValue={()=> val ==="delete"?setDisplayValue(displayValue.slice(0, -1)):setDisplayValue(displayValue+val)}/>})}
          </div>
-        <div className="operation">
-          <Btn data="/" setDisplayValue={()=> setDisplayValue(displayValue+"/")}/>
-          <Btn data="*" setDisplayValue={()=> setDisplayValue(displayValue+"*")}/>
-          <Btn data="-" setDisplayValue={()=> setDisplayValue(displayValue+"-")}/>
-          <Btn data="+" setDisplayValue={()=> setDisplayValue(displayValue+"+")}/>
-          <Btn data="=" setDisplayValue={()=> done()} calculateValue={displayValue}/>
+        <div className=" flex flex-col gap-2.5 justify-center item-center">
+          <Btn data={<i class="fa-solid fa-divide"></i>} setDisplayValue={()=> setDisplayValue(displayValue+"/")}/>
+          <Btn data={<i class="fa-solid fa-xmark"></i>} setDisplayValue={()=> setDisplayValue(displayValue+"*")}/>
+          <Btn data={<i class="fa-solid fa-minus"></i>} setDisplayValue={()=> setDisplayValue(displayValue+"-")}/>
+          <Btn data={<i class="fa-solid fa-plus"></i>} setDisplayValue={()=> setDisplayValue(displayValue+"+")}/>
+          <Btn data={<i class="fa-solid fa-equals"></i>} setDisplayValue={()=> done()} calculateValue={displayValue}/>
         </div>
       </div>
     </div>
